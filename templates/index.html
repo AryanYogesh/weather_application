@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App - 5 Day Forecast</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>5 Day Weather Forecast</h1>
+        <form id="forecast-form">
+            <input type="text" name="city" id="city" placeholder="Enter city name" required>
+            <button type="submit">Get Forecast</button>
+        </form>
+        <div id="forecast-result"></div>
+    </div>
+
+    <script>
+        document.getElementById('forecast-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const city = document.getElementById('city').value;
+            const response = await fetch('/forecast', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({ city })
+            });
+            const data = await response.json();
+            const forecastResult = document.getElementById('forecast-result');
+            forecastResult.innerHTML = '';
+
+            if (data.error) {
+                forecastResult.innerHTML = `<p>${data.error}</p>`;
+            } else {
+                forecastResult.innerHTML = `<h2>5 Day Forecast for ${data.city}, ${data.country}</h2>`;
+                data.forecast.forEach(item => {
+                    forecastResult.innerHTML += `
+                        <div class="forecast-item">
+                            <p><strong>Date & Time:</strong> ${item.date}</p>
+                            <p><strong>Temperature:</strong> ${item.temperature} °C</p>
+                            <p><strong>Description:</strong> ${item.description}</p>
+                            <img src="http://openweathermap.org/img/wn/${item.icon}.png" alt="${item.description}" />
+                        </div>
+                    `;
+                });
+            }
+        });
+    </script>
+</body>
+</html>

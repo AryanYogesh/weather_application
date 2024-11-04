@@ -1,0 +1,97 @@
+\/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background: linear-gradient(to right, rgb(241, 241, 120), #045287);
+    /* display: flex;
+    justify-content: center; */
+    margin-top: 150px;
+}
+
+h1{
+    color: rgb(10, 11, 11);
+    margin-top: 20px;
+    font-size: 2em;
+    text-align: center;
+}
+
+.container{
+    background-color: #fff;
+    width: 30%;
+    margin-left: 420px;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 0 8 rgba(0, 0, 2, 0.8);
+}
+
+.container input{
+    font-size: 1em;
+    margin-right: 10px;
+    border-radius: 5px;
+    background-color: aliceblue;
+    border: 0.2px solid;
+    width: 94%;
+    padding: 10px;
+    align-items: center;
+}
+
+.container button{
+    width: 30%;
+    background-color: rgb(97, 124, 206);
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    color: #fff;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.container button:hover{
+    background-color: rgb(14, 62, 206);
+}
+
+#weatherinfo{
+    text-align: center;
+}
+
+script{
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+#cityInput {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 200px;
+}
+
+#weatherInfo {
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 35.3%;
+    align-items: center;
+    margin-left: 420px;
+}
+
+#weatherInfo p {
+    margin: 10px 0;
+    font-size: 1.1em;
+}
+
+#weatherInfo p:first-child {
+    font-weight: bold;
+    color: #1e90ff;
+}
+
